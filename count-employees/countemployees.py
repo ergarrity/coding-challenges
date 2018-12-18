@@ -49,18 +49,27 @@ class Node(object):
         them.
         """
 
-        to_visit = [self]
+        #NON-RECURSIVE SOLUTION
+
+        # to_visit = [self]
+        # count = 0
+
+        # while to_visit:
+        #     emp = to_visit.pop()
+
+        #     for child in emp.children:
+        #         count += 1
+        #         to_visit.append(child)
+
+        # return count
+
+        #RECURSIVE SOLUTION
         count = 0
 
-        while to_visit:
-            emp = to_visit.pop()
-
-            for child in emp.children:
-                count += 1
-                to_visit.append(child)
+        for child in self.children:
+            count = count + 1 + child.count_employees()
 
         return count
-
 
 
 

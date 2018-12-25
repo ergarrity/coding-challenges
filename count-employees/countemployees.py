@@ -30,6 +30,11 @@ And test our counting function::
     >>> jane.count_employees()
     8
 
+We provide a non-recursive version, let's make sure that gives the same
+answer::
+
+    >>> jane.count_employees_nonrecursive()
+    8
 
 """
 
@@ -49,21 +54,6 @@ class Node(object):
         them.
         """
 
-        #NON-RECURSIVE SOLUTION
-
-        # to_visit = [self]
-        # count = 0
-
-        # while to_visit:
-        #     emp = to_visit.pop()
-
-        #     for child in emp.children:
-        #         count += 1
-        #         to_visit.append(child)
-
-        # return count
-
-        #RECURSIVE SOLUTION
         count = 0
 
         for child in self.children:
@@ -71,8 +61,22 @@ class Node(object):
 
         return count
 
+    def count_employees_nonrecursive(self):
+        """Return a count of how many employees this person manages.
 
+        Non-recursive solution"""
 
+        to_visit = [self]
+        count = 0
+
+        while to_visit:
+            emp = to_visit.pop()
+
+            for child in emp.children:
+                count += 1
+                to_visit.append(child)
+
+        return count
 
 
 if __name__ == '__main__':

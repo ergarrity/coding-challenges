@@ -10,7 +10,7 @@
 function missingNumber(nums, maxNum) {
 
     let numsObj = new Object();
-    
+
     for ( i = 1; i <= maxNum; i++){
         numsObj[i] = false;
     }

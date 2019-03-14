@@ -11,3 +11,22 @@ function isUnique(str) {
     }
     return false;
 }
+
+// What if you can't use data structures other than strings and arrays?
+
+function isUniqueAlt(str){
+    let chars = [];
+    
+    for (let i = 0; i < str.length; i++){
+        chars.push(str[i]);
+    }
+
+    chars.sort();
+
+    for (let i = 0; i < str.length - 1; i++){
+        if (chars[i] === chars[i+1]) {
+            return false;
+        }
+    }
+    return true;
+}

@@ -13,9 +13,8 @@ function addNums(headA, headB){
     let multiplier = 1;
     let temp = headA;
     let sum = 0;
-    // let maxMultiplier = 0;
-    // let resultHead = null;
-    // let resultBody = null;
+    let resultHead = null;
+    let resultBody = null;
     
     while(temp){
         sum += temp.data * multiplier;
@@ -32,21 +31,22 @@ function addNums(headA, headB){
         multiplier *= 10;
     }
 
-    // while (sum > 0){
-    //     let data = sum % 10;
-    //     if(!resultHead){
-    //         resultHead = new Node(data);
-    //         resultHead.next = resultBody;
-    //     } else {
-    //         if(!resultBody){
-    //             resultBody = new Node(data);
-    //         } else {
-    //         resultBody.next = new Node(data);
-    //         resultBody = resultBody.next;
-    //         }
-    //     }
-    // }
-    return sum;
+    while (sum > 0){
+        let data = sum % 10;
+        sum = Math.floor(sum/10);
+        if(!resultHead){
+            resultHead = new Node(data);
+        } else {
+            if(!resultBody){
+                resultBody = new Node(data);
+                resultHead.next = resultBody;
+            } else {
+            resultBody.next = new Node(data);
+            resultBody = resultBody.next;
+            }
+        }
+    }
+    return resultHead;
 } 
 
 let A = new Node(7);

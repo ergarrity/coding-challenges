@@ -90,4 +90,20 @@ class BinarySearchTree{
             return this.findParent(value, node.right);
         }
     }
+
+    findNode(value, node = this.root){
+        if (!node){
+            return null;
+        }
+
+        if (value == node.data){
+            return node;
+        }
+
+        if (value < node.data){
+            return this.findNode(value, node.left);
+        } else {
+            return this.findNode(value, node.right);
+        }
+    }
 }

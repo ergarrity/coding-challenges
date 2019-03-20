@@ -11,7 +11,7 @@ class LinkedList{
         this.tail = null;
     }
 
-    // insert @ end of list
+    // insert @ end of list; O(1) runtime
     insert(value){
         let node = new Node(value);
 
@@ -22,6 +22,19 @@ class LinkedList{
             this.tail.next = node;
             this.tail = node;
         }
+    }
+
+    // search for a given value within a linked list; O(n) runtime
+    search(value){
+        let current = this.head;
+
+        while(current){
+            if (current.data == value){
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
     }
 }
 

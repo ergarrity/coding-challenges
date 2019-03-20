@@ -36,5 +36,40 @@ class LinkedList{
         }
         return false;
     }
+
+    // delete node whose data matches value from list and return true;
+    // if no node exists with data that matches value, returns false
+    delete(value) {
+        if(!this.head){
+            return false;
+        }
+
+        if(this.head.data == value){
+            if(this.head.data == this.tail.data){
+                this.head = null;
+                this.tail = null;
+                return true;
+            } else {
+                this.head = this.head.next;
+                return true;
+            }
+        }
+
+        let current = this.head;
+
+        while(current.next){
+            if(current.next.data == value){
+                if(current.next.next){
+                    current.next = current.next.next;
+                    return true;
+                }
+                current.next = null;
+                this.tail = current;
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
 }
 

@@ -58,4 +58,36 @@ class BinarySearchTree{
             }
         }
     }
+
+    findParent(value, node = this.root){
+        if (!node){
+            return null;
+        }
+
+        if (value == node.data){
+            return null;
+        }
+
+        if (value < node.data){
+            if (!node.left){
+                return null;
+            }
+
+            if (value == node.left.data){
+                return node;
+            }
+
+            return this.findParent(value, node.left);
+        } else {
+            if (!node.right){
+                return null;
+            }
+
+            if (value == node.right.data){
+                return node;
+            }
+
+            return this.findParent(value, node.right);
+        }
+    }
 }

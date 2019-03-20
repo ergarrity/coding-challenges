@@ -39,6 +39,7 @@ class LinkedList{
 
     // delete node whose data matches value from list and return true;
     // if no node exists with data that matches value, returns false
+    // runtime: O(n)
     delete(value) {
         if(!this.head){
             return false;
@@ -70,6 +71,22 @@ class LinkedList{
             current = current.next;
         }
         return false;
+    }
+
+    // traverse linked list and print the data for each node
+    // if list is empty, print 'empty list'
+    // runtime: O(n)
+    traverse(){
+        if(!this.head){
+            console.log('empty list');
+        }
+        
+        let current = this.head;
+
+        while(current){
+            console.log(current.data);
+            current = current.next;
+        }
     }
 }
 

@@ -16,13 +16,13 @@ class BinarySearchTree{
             if (!current.left){
                 current.left = new Node(value);
             } else {
-                this.insertNode(current.left, value);
+                return this.insertNode(current.left, value);
             }
         } else {
             if (!current.right){
                 current.right = new Node(value);
             } else {
-                this.insertNode(current.right, value);
+                return this.insertNode(current.right, value);
             }
         }
     }
@@ -31,7 +31,31 @@ class BinarySearchTree{
         if (!this.root){
             this.root = new Node(value);
         } else {
-            this.insertNode(this.root, value);
+            return this.insertNode(this.root, value);
+        }
+    }
+
+    search(value, node = this.root){
+        if (!node){
+            return false;
+        }
+
+        if (node.data == value){
+            return true;
+        }
+
+        if (value < node.data){
+            if (!node.left){
+                return false;
+            } else {
+                return this.search(value, node.left);
+            }
+        } else {
+            if (!node.right){
+                return false;
+            } else {
+                return this.search(value, node.right);
+            }
         }
     }
 }

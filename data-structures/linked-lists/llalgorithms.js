@@ -88,5 +88,22 @@ class LinkedList{
             current = current.next;
         }
     }
+
+    reverseTraverse(){
+        if(this.tail){
+            let current = this.tail;
+            while(current !== this.head){
+                let prev = this.head;
+                while(prev.next !== current){
+                    prev = prev.next;
+                }
+                console.log(current.data);
+                current = prev;
+            }
+            console.log(current.data);
+        } else {
+            console.log('empty list')
+        }
+    }
 }
 

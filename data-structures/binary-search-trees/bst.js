@@ -3,7 +3,45 @@ class Node{
         this.data = data;
         this.left = null;
         this.right = null;
+        this.next = null;
     }
+}
+
+class Queue{
+    constructor(){
+        this.head = null;
+    }
+
+    enqueue(node){
+        if (!this.head){
+            this.head = node;
+        } else {
+            let temp = this.head;
+            while (temp.next){
+                temp = temp.next;
+            }
+            temp.next = node;
+        }
+    }
+
+    dequeue(){
+        if (!this.head){
+            return 'underflow error';
+        }
+
+        let temp = this.head;
+        this.head = this.head.next;
+        return temp;
+    }
+
+    isEmpty(){
+        if (!this.head){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
 }
 
 class BinarySearchTree{
@@ -185,6 +223,24 @@ class BinarySearchTree{
             this.inorderTraversal(node.left);
             console.log(node.data);
             this.inorderTraversal(node.right);
+        }
+    }
+
+    breadthFirstTraversal(node = this.root){
+        let q = new Queue();
+        while (node){
+            console.log(node.data);
+            if (node.left){
+                q.enqueue(node.left);
+            }
+            if (node.right) {
+                q.enqueue(node.right);
+            }
+            if (!q.isEmpty()){
+                node = q.dequeue();
+            } else {
+                node = null;
+            }
         }
     }
 

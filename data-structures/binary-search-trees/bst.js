@@ -164,4 +164,28 @@ class BinarySearchTree{
         return temp.data;
     }
 
+    preorderTraversal(node = this.root){
+        if (node){
+            console.log(node.data);
+            this.preorderTraversal(node.left);
+            this.preorderTraversal(node.right);
+        }
+    }
+
+    postorderTraversal(node = this.root){
+        if (node){
+            this.postorderTraversal(node.left);
+            this.postorderTraversal(node.right);
+            console.log(node.data);
+        }
+    }
+
+    inorderTraversal(node = this.root){
+        if (node){
+            this.inorderTraversal(node.left);
+            console.log(node.data);
+            this.inorderTraversal(node.right);
+        }
+    }
+
 }

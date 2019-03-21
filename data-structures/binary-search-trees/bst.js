@@ -106,4 +106,49 @@ class BinarySearchTree{
             return this.findNode(value, node.right);
         }
     }
+
+    // remove(value) {
+    //     this.root = this.removeNode(this.root, value);
+    // }
+
+    // removeNode(node, value){
+    //     if(!node){
+    //         return null;
+    //     } else if (value < node.data){
+    //         node.left = this.removeNode(node.left, value);
+    //         return node;
+    //     } else if (value > node.data) {
+    //         node.right = this.removeNode(node.right, value);
+    //         return node;
+    //     } else {
+    //         if (!node.left && !node.right){
+    //             node = null;
+    //             return node;
+    //         }
+
+    //         else if (!node.left){
+    //             node = node.right;
+    //             return node;
+    //         }
+
+    //         else if (!node.right){
+    //             node = node.left;
+    //             return node;
+    //         }
+    //     }
+    // }
+
+    findMin(){
+        if (!this.root){
+            return null;
+        }
+
+        let temp = this.root;
+        
+        while(temp.left){
+            temp = temp.left;
+        }
+        return temp;
+    }
+
 }

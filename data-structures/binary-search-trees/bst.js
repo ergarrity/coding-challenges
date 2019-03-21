@@ -144,9 +144,22 @@ class BinarySearchTree{
         }
 
         let temp = this.root;
-        
+
         while(temp.left){
             temp = temp.left;
+        }
+        return temp;
+    }
+
+    findMax(){
+        if (!this.root){
+            return null;
+        }
+
+        let temp = this.root;
+
+        while(temp.right){
+            temp = temp.right;
         }
         return temp;
     }

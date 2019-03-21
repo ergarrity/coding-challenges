@@ -148,7 +148,7 @@ class BinarySearchTree{
         while(temp.left){
             temp = temp.left;
         }
-        return temp;
+        return temp.data;
     }
 
     findMax(){
@@ -161,7 +161,7 @@ class BinarySearchTree{
         while(temp.right){
             temp = temp.right;
         }
-        return temp;
+        return temp.data;
     }
 
 }

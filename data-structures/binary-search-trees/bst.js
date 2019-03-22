@@ -1,47 +1,52 @@
-class Node{
-    constructor(data){
-        this.data = data;
-        this.left = null;
-        this.right = null;
-        this.next = null;
+let Node = function(data) {
+    this.data = data;
+    this.left = null;
+    this.right = null;
+    this.next = null;
+}
+
+let Queue = function(){
+    this.head = null;
+    this.tail = null;
+}
+
+Queue.prototype.enqueueNode = function(node){
+    if (!this.head){
+        this.head = node;
+        this.tail = node;
+    } else {
+        this.tail.next = node;
+        this.tail = this.tail.next;
     }
 }
 
-class Queue{
-    constructor(){
-        this.head = null;
+Queue.prototype.enqueue = function (data){
+    if (!this.head){
+        let node = new Node(data);
+        this.head = node;
+        this.tail = node;
+    } else {
+        this.tail.next = new Node(data);
+        this.tail = this.tail.next;
     }
+}
 
-    enqueue(node){
-        if (!this.head){
-            this.head = node;
-        } else {
-            let temp = this.head;
-            while (temp.next){
-                temp = temp.next;
-            }
-            temp.next = node;
-        }
-    }
-
-    dequeue(){
-        if (!this.head){
-            return 'underflow error';
-        }
-
+Queue.prototype.dequeue = function() {
+    if (!this.head){
+        return 'underflow error';
+    } else {
         let temp = this.head;
         this.head = this.head.next;
         return temp;
     }
+}
 
-    isEmpty(){
-        if (!this.head){
-            return true;
-        } else {
-            return false;
-        }
+Queue.prototype.isEmpty = function() {
+    if (!this.head){
+        return true;
+    } else {
+        return false;
     }
-    
 }
 
 class BinarySearchTree{

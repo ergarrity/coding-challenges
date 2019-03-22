@@ -8,3 +8,13 @@ let union = function(set1, set2){
     }
     return union;
 }
+
+let intersection = function(set1, set2){
+    let intersection = new Set([]);
+    for(let item of set1){
+        if(set2.has(item)){
+            intersection.add(item);
+        }
+    }
+    return intersection;
+}

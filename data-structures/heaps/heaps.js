@@ -85,3 +85,9 @@ MinHeap.prototype.contains = function (value){
     }
     return false;
 }
+
+MinHeap.prototype.traverse = function() {
+    for (let i = 0; i < this.heap.length; i++){
+        console.log(this.heap[i]);
+    }
+}

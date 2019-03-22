@@ -19,13 +19,13 @@ MinHeap.prototype.minHeapify = function(){
 }
 
 MinHeap.prototype.remove = function(value){
-    if (this.heap.length === 0){
+    if (this.heap.length == 0){
         return false;
     }
-    
+
     let i = 0;
     while (this.heap[i] !== value){
-        if (i === this.heap.length - 1){
+        if (i == this.heap.length - 1){
             return false;
         }
         i++;
@@ -53,4 +53,35 @@ MinHeap.prototype.remove = function(value){
                 }
     }
     return true;
+}
+
+MinHeap.prototype.contains = function (value){
+    if (this.heap.length == 0){
+        return false;
+    }
+
+    let start = 0;
+    let nodes = 1;
+
+    while (start < this.heap.length){
+        start = nodes - 1;
+        let end = nodes + start;
+        let count = 0;
+
+        while (start < this.heap.length && start < end){
+            if (this.heap[start] == value){
+                return true;
+            } else if (value > this.heap[Math.floor((start-1)/2)] 
+            && value < this.heap[start]) {
+                count++;
+            }
+            start++;
+        }
+
+        if (count == nodes){
+            return false;
+        }
+        nodes *= 2;
+    }
+    return false;
 }

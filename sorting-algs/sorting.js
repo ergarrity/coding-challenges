@@ -13,6 +13,7 @@ const mergeSort = function(lst){
     )
 }
 
+
 const merge = function(l, r){
     let result = [];
 
@@ -22,6 +23,7 @@ const merge = function(l, r){
 
     return result.concat(l.length ? l : r)
 }
+
 
 const quickSort = function(lst){
     if (lst.length < 2){
@@ -40,4 +42,29 @@ const quickSort = function(lst){
         }
     }
     return quickSort(lesser).concat(pivot, quickSort(greater));
+}
+
+
+const bubbleSort = function(lst){
+    if (lst.length < 2){
+        return lst;
+    }
+
+    let swap;
+    let n = lst.length - 1;
+    let result = lst;
+    
+    do {
+        swap = false;
+        for(let i = 0; i < n; i++){
+            if(result[i] > result[i+1]){
+                let temp = result[i];
+                result[i] = result[i+1];
+                result[i+1] = temp;
+                swap = true;
+            }
+        }
+        n--;
+    } while (swap);
+    return result;
 }

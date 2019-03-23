@@ -85,6 +85,60 @@ BinarySearchTree.prototype.insertNode = function (current, value) {
     }
 }
 
+// BinarySearchTree.prototype.remove = function(value){
+//     let nodeToRemove = this.findNode(value);
+
+//     if (!nodeToRemove){
+//         return false;
+//     }
+
+//     let parent = this.findParent(value);
+
+//     if (!parent) {
+//         this.root = null;
+//     }
+
+//     else if (!nodeToRemove.left && !nodeToRemove.right){
+//         if (nodeToRemove.value < parent.value){
+//             parent.left = null;
+//         } else {
+//             parent.right = null;
+//         }
+//     }
+//     else if (!nodeToRemove.left && nodeToRemove.right){
+//         if (nodeToRemove.value < parent.value){
+//             parent.left = nodeToRemove.right;
+//         }
+//         else {
+//             parent.right = nodeToRemove.right;
+//         }
+//     }
+//     else if (nodeToRemove.left && !nodeToRemove.right){
+//         if (nodeToRemove.value < parent.value){
+//             parent.left = nodeToRemove.left;
+//         }
+//         else {
+//             parent.Right = nodeToRemove.right;
+//         }
+//     }
+//     else if (nodeToRemove.left && nodeToRemove.right){
+//         if (nodeToRemove.value < parent.value){
+//             parent.left = nodeToRemove.left;
+//         }
+//         else {
+//             parent.right = nodeToRemove.left;
+//         }
+//     }
+//     else {
+//         let largestValue = nodeToRemove.left;
+//         while (largestValue.right){
+//             largestValue = largestValue.right;
+//         }
+//         this.findParent(largestValue.value).right = null;
+//         nodeToRemove.value = largestValue.value;
+//     }
+// }
+
 BinarySearchTree.prototype.contains = function(value, node = this.root){
     if (!node){
         return false;
@@ -102,14 +156,14 @@ BinarySearchTree.prototype.contains = function(value, node = this.root){
 
 BinarySearchTree.prototype.findParent = function(value, node = this.root){
     if (!node){
-        return false;
+        return null;
     } 
     else if (value == node.data){
-        return false;
+        return null;
     }
     else if (value < node.data){
         if (!node.left){
-            return false;
+            return null;
         } 
         else if (value == node.left.data) {
             return node;
@@ -133,7 +187,7 @@ BinarySearchTree.prototype.findParent = function(value, node = this.root){
 
 BinarySearchTree.prototype.findNode = function(value, node = this.root){
     if (!node){
-        return false;
+        return null;
     }
 
     if (value == node.data){
@@ -216,38 +270,3 @@ BinarySearchTree.prototype.breadthFirst = function(node = this.root){
     }
 }
 
-class BiarySearchTree{
-
-
-    // remove(value) {
-    //     this.root = this.removeNode(this.root, value);
-    // }
-
-    // removeNode(node, value){
-    //     if(!node){
-    //         return null;
-    //     } else if (value < node.data){
-    //         node.left = this.removeNode(node.left, value);
-    //         return node;
-    //     } else if (value > node.data) {
-    //         node.right = this.removeNode(node.right, value);
-    //         return node;
-    //     } else {
-    //         if (!node.left && !node.right){
-    //             node = null;
-    //             return node;
-    //         }
-
-    //         else if (!node.left){
-    //             node = node.right;
-    //             return node;
-    //         }
-
-    //         else if (!node.right){
-    //             node = node.left;
-    //             return node;
-    //         }
-    //     }
-    // }
-
-}

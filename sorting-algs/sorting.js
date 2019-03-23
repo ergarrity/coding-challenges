@@ -68,3 +68,19 @@ const bubbleSort = function(lst){
     } while (swap);
     return result;
 }
+
+const insertionSort = function(lst){
+    let unsorted = 1;
+
+    while (unsorted < lst.length){
+        let temp = lst[unsorted];
+        let i = unsorted - 1;
+        while(i >= 0 && temp < lst[i]){
+            lst[i+1] = lst[i];
+            i--;
+        }
+        lst[i+1] = temp;
+        unsorted++;
+    }
+    return lst;
+}
